@@ -13,8 +13,8 @@ const NoPhantom = () => {
             </span>
           </h1>
 
-          <p className="max-w-xl mx-auto mt-4 sm:leading-relaxed sm:text-xl">
-            Please install the Phantom Wallet to continue
+          <p className="flex max-w-xl mx-auto justify-center mt-4 sm:leading-relaxed sm:text-xl">
+            Please install the <img src="https://phantom.app/img/phantom-logo.svg" alt="Phantom" className="mx-2 w-20"/>to continue
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mt-8">
