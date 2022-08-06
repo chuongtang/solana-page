@@ -36,22 +36,8 @@ const App = () => {
     return <NoPhantom />;
   }
 
-  return (
-    <div className="App">
-      <div className="container">
-        <MainPage />
-        <div className="footer-container">
-          <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
-          <a
-            className="footer-text"
-            href={TWITTER_LINK}
-            target="_blank"
-            rel="noreferrer"
-          >{`built on @${TWITTER_HANDLE}`}</a>
-        </div>
-      </div>
-    </div>
-  );
+  return (<MainPage />)
+        
 };
 
 export default App;
