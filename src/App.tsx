@@ -39,12 +39,6 @@ const App = () => {
   return (
     <div className="App">
       <div className="container">
-        {/* <div className="header-container">
-          <p className="header">🖼 GIF Portal</p>
-          <p className="sub-text">
-            View your GIF collection in the metaverse ✨
-          </p>
-        </div> */}
         <MainPage />
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
