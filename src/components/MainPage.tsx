@@ -12,6 +12,7 @@ const MainPage = () => {
 
   const [walletAddress, setWalletAddress] = useState(null);
   const [message, setMessage] = useState<string>('');
+  const [inputGreeting, setInputGreeting] = useState<string>('');
 
   const checkIfWalletIsConnected = async () => {
     try {
@@ -46,6 +47,8 @@ const MainPage = () => {
     }
   };
 
+
+
   useEffect(() => {
     const onLoad = async () => {
       await checkIfWalletIsConnected();
@@ -57,7 +60,8 @@ const MainPage = () => {
 
 
   return (
-    <section>
+    <section className="bg-gray-800">
+
       {!walletAddress ?
         <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-8 lg:gap-16 lg:grid-cols-2">
@@ -88,14 +92,52 @@ const MainPage = () => {
           </div></div>
         :
         <>
-          <p className="text-white m-8">{message}</p>
+          <h1 className="text-3xl py-8 text-center font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-red-700">My GIF Portal</h1>
+          <p className="mt-4 text-gray-200 text-center">
+            View your GIF collecion in the metaverse ✨.
+          </p>
+          <button className="m-2 p-[2px] rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:text-white active:text-opacity-75 focus:outline-none focus:ring">
+            <span className="block p-3 text-sm font-medium bg-white rounded-sm hover:bg-transparent">
+              Send a message
+            </span>
+          </button>
+          <form action="" className="space-y-4 m-2">
+            <div>
+              <label className="sr-only" htmlFor="name">Name</label>
+              <input className="w-full p-3 text-sm border-gray-200 rounded-lg" placeholder="Name (optional)" type="text" id="name" />
+            </div>
+            <div>
+              <label className="sr-only" htmlFor="message">Message</label>
+              <textarea
+                className="w-full p-3 text-sm border-gray-200 rounded-lg"
+                placeholder="Message"
+                rows={8}
+                id="message"
+                required={true}
+              ></textarea>
+            </div>
+
+            <div className="mt-4">
+              <button
+                type="submit"
+                className="inline-flex items-center justify-center w-full px-5 py-3 text-white bg-teal-500 rounded-lg sm:w-auto"
+              >Send Enquiry
+              </button>
+              <button
+              onClick={()=>console.log("clicked")}
+                className="inline-flex float-right m-2 items-center justify-center p-3 text-white bg-teal-500 rounded-lg sm:w-auto"
+              > Cancel 
+              </button>
+            </div>
+          </form>
+          <p className="m-8 text-white">{message}</p>
           <GridBody />
 
         </>
 
       }
 
-      <footer className="w-full py-4 bg-gray-100">
+      <footer className="w-full py-4 bg-gray-100 mt-4">
         <div className="md:px-12 lg:px-28">
           <div className="container m-auto space-y-6 text-gray-600">
 
