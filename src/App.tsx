@@ -3,6 +3,7 @@ import twitterLogo from './assets/twitter-logo.svg';
 import './App.css';
 import { getProvider } from './utils'
 import NoPhantom from './components/NoPhantom';
+import MainPage from './components/MainPage';
 import { clusterApiUrl, Connection, PublicKey } from '@solana/web3.js';
 import { TLog } from '../types';
 
@@ -22,7 +23,7 @@ export type ConnectedMethods =
     };
 
     interface Props {
-      publicKey: PublicKey | null;
+      publicKey?: PublicKey | null;
       connectedMethods: ConnectedMethods[];
       handleConnect: () => Promise<void>;
       logs: TLog[];
@@ -38,12 +39,13 @@ const App = () => {
   return (
     <div className="App">
       <div className="container">
-        <div className="header-container">
+        {/* <div className="header-container">
           <p className="header">🖼 GIF Portal</p>
           <p className="sub-text">
             View your GIF collection in the metaverse ✨
           </p>
-        </div>
+        </div> */}
+        <MainPage />
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
           <a
