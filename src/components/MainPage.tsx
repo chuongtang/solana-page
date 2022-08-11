@@ -13,6 +13,7 @@ const MainPage = () => {
   const [walletAddress, setWalletAddress] = useState(null);
   const [message, setMessage] = useState<string>('');
   const [inputGreeting, setInputGreeting] = useState<string>('');
+  const [showMsgBox, setShowMsgBox] = useState<boolean>(false);
 
   const checkIfWalletIsConnected = async () => {
     try {
@@ -96,15 +97,18 @@ const MainPage = () => {
           <p className="mt-4 text-gray-200 text-center">
             View your GIF collecion in the metaverse ✨.
           </p>
-          <button className="m-2 p-[2px] rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:text-white active:text-opacity-75 focus:outline-none focus:ring">
+          {!showMsgBox ? 
+          <button className="m-2 p-[2px] rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:text-white active:text-opacity-75 focus:outline-none focus:ring"
+          onClick={()=>setShowMsgBox(true)}>
             <span className="block p-3 text-sm font-medium bg-white rounded-sm hover:bg-transparent">
               Send a message
             </span>
           </button>
+          : 
           <form action="" className="space-y-4 m-2">
             <div>
-              <label className="sr-only" htmlFor="name">Name</label>
-              <input className="w-full p-3 text-sm border-gray-200 rounded-lg" placeholder="Name (optional)" type="text" id="name" />
+              <label className="sr-only" htmlFor="Email">Email</label>
+              <input className="w-full p-3 text-sm border-gray-200 rounded-lg" placeholder="Email (optional)" type="text" id="email" />
             </div>
             <div>
               <label className="sr-only" htmlFor="message">Message</label>
@@ -120,16 +124,17 @@ const MainPage = () => {
             <div className="mt-4">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center w-full px-5 py-3 text-white bg-teal-500 rounded-lg sm:w-auto"
-              >Send Enquiry
+                className="inline-flex items-center justify-center w-full border-2 border-yellow-600 rounded-lg px-3 py-2 text-yellow-400 cursor-pointer hover:bg-yellow-600 hover:text-yellow-200 sm:w-auto"
+              >Send 🚀
               </button>
               <button
-              onClick={()=>console.log("clicked")}
-                className="inline-flex float-right m-2 items-center justify-center p-3 text-white bg-teal-500 rounded-lg sm:w-auto"
-              > Cancel 
+                className="inline-flex float-right items-center justify-center border-2 border-red-600 rounded-lg px-3 py-2 text-red-400 cursor-pointer hover:bg-red-600 hover:text-red-200 sm:w-auto"
+                onClick={()=>setShowMsgBox(false)}
+              > Cancel ❌
               </button>
             </div>
           </form>
+          }
           <p className="m-8 text-white">{message}</p>
           <GridBody />
 
