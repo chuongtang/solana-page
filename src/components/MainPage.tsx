@@ -77,9 +77,10 @@ const MainPage = () => {
             </div>
 
             <div className="lg:py-24">
-              <h1 className="text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-red-600">My GIF Portal</h1>
 
-              <p className="mt-4 text-gray-200">
+              <h1 className="text-3xl py-4 font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-red-600">My GIF Portal</h1>
+
+              <p className="mt-8 text-gray-200">
                 View your GIF collecion in the metaverse ✨.
               </p>
 
@@ -93,48 +94,308 @@ const MainPage = () => {
           </div></div>
         :
         <>
+          <div className="vortex2">
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball"></div>
+          </div>
           <h1 className="text-3xl py-8 text-center font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-red-700">My GIF Portal</h1>
           <p className="mt-4 text-gray-200 text-center">
             View your GIF collecion in the metaverse ✨.
           </p>
-          {!showMsgBox ? 
-          <button className="m-2 p-[2px] rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:text-white active:text-opacity-75 focus:outline-none focus:ring"
-          onClick={()=>setShowMsgBox(true)}>
-            <span className="block p-3 text-sm font-medium bg-white rounded-sm hover:bg-transparent">
-              Send a message
-            </span>
-          </button>
-          : 
-          <form action="" className="space-y-4 m-2">
-            <div>
-              <label className="sr-only" htmlFor="Email">Email</label>
-              <input className="w-full p-3 text-sm border-gray-200 rounded-lg" placeholder="Email (optional)" type="text" id="email" />
-            </div>
-            <div>
-              <label className="sr-only" htmlFor="message">Message</label>
-              <textarea
-                className="w-full p-3 text-sm border-gray-200 rounded-lg"
-                placeholder="Message"
-                rows={8}
-                id="message"
-                required={true}
-              ></textarea>
-            </div>
+          
+          {!showMsgBox ?
+            <button className="m-2 p-[2px] rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:text-white active:text-opacity-75 focus:outline-none focus:ring"
+              onClick={() => setShowMsgBox(true)}>
+              <span className="block p-3 text-sm font-medium bg-white rounded-sm hover:bg-transparent">
+                Send a message
+              </span>
+            </button>
+            :
+            <form action="" className="space-y-4 m-2">
+              <div>
+                <label className="sr-only" htmlFor="Email">Email</label>
+                <input className="w-full p-3 text-sm border-gray-200 rounded-lg" placeholder="Email (optional)" type="text" id="email" />
+              </div>
+              <div>
+                <label className="sr-only" htmlFor="message">Message</label>
+                <textarea
+                  className="w-full p-3 text-sm border-gray-200 rounded-lg"
+                  placeholder="Message"
+                  rows={8}
+                  id="message"
+                  required={true}
+                ></textarea>
+              </div>
 
-            <div className="mt-4">
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center w-full border-2 border-yellow-600 rounded-lg px-3 py-2 text-yellow-400 cursor-pointer hover:bg-yellow-600 hover:text-yellow-200 sm:w-auto"
-              >Send 🚀
-              </button>
-              <button
-                className="inline-flex float-right items-center justify-center border-2 border-red-600 rounded-lg px-3 py-2 text-red-400 cursor-pointer hover:bg-red-600 hover:text-red-200 sm:w-auto"
-                onClick={()=>setShowMsgBox(false)}
-              > Cancel ❌
-              </button>
-            </div>
-          </form>
+              <div className="mt-4">
+                <button
+                  type="submit"
+                  className="my-2 inline-flex items-center justify-center w-full border-2 border-yellow-600 rounded-lg px-3 py-2 text-yellow-400 cursor-pointer hover:bg-yellow-600 hover:text-yellow-200 sm:w-auto"
+                >Send 🚀
+                </button>
+                <button
+                  className="inline-flex float-right items-center justify-center border-2 border-red-600 rounded-lg px-3 py-2 text-red-400 cursor-pointer hover:bg-red-600 hover:text-red-200 sm:w-auto"
+                  onClick={() => setShowMsgBox(false)}
+                > Cancel ❌
+                </button>
+              </div>
+            </form>
           }
+          
           <p className="m-8 text-white">{message}</p>
           <GridBody />
 

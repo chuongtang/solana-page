@@ -152,11 +152,11 @@
 /* Vortex */
 .vortex {
   position: relative;
-  left: 30vw;
-  top: 10vh;
-  transform: rotateX(60deg);
+  left: 35vw;
+  top: 15vh;
+  transform: rotateX(55deg);
   transform-style: preserve-3d;
-  opacity: 2;
+  /* opacity: 2; */
 }
 
 .ball {
