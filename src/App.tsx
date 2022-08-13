@@ -6,6 +6,7 @@ import NoPhantom from './components/NoPhantom';
 import MainPage from './components/MainPage';
 import { clusterApiUrl, Connection, PublicKey } from '@solana/web3.js';
 import { TLog } from '../types';
+import idl from './idl.json';
 
 // Constants
 const provider = getProvider();
