@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import GridBody from './GridBody'
+import GridBody from './GridBody';
+import SolarSys from '../assets/Solarsys.svg'
 
 const MainPage = () => {
 
@@ -70,9 +71,9 @@ const MainPage = () => {
               className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:h-full lg:order-last"
             >
               <img
-                className="absolute inset-0 object-cover w-full h-full"
-                src="https://www.hyperui.dev/photos/man-1.jpeg"
-                alt="Man using a computer"
+                className="absolute inset-0 object-cover rounded-xl w-full h-full"
+                src={SolarSys}
+                alt="Solar system animation"
               />
             </div>
 
