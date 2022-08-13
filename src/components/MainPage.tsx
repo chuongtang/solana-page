@@ -355,7 +355,7 @@ const MainPage = () => {
           </div>
           <h1 className="text-3xl py-8 text-center font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-red-700">My GIF Portal</h1>
           <p className="mt-4 text-gray-200 text-center">
-            View your GIF collecion in the metaverse ✨.
+            View my greeting message in the metaverse ✨.
           </p>
           
           {!showMsgBox ?
