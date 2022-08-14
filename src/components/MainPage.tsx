@@ -1,7 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import GridBody from './GridBody';
 import Navbar from './Navbar';
-import SolarSys from '../assets/Solarsys.svg'
+import SolarSys from '../assets/Solarsys.svg';
+import idl from '../idl.json';
+// import { Connection, PublicKey, clusterApiUrl } from '@solana/web3.js';
+// import { Program, Provider, web3 } from '@project-serum/anchor';
+
+// SystemProgram is a reference to the Solana runtime!
+// const { SystemProgram, Keypair } = web3;
+
+// Create a keypair for the account that will hold the GIF data.
+// let baseAccount = Keypair.generate();
+
+// Get our program's id from the IDL file.
+// const programID = new PublicKey(idl.metadata.address);
+
+// Set our network to devnet.
+// const network = clusterApiUrl('devnet');
+
+// Controls how we want to acknowledge when a transaction is "done".
+const opts = {
+  preflightCommitment: "processed"
+}
+
+const getProvider = () => {
+  // const connection = new Connection(network, "processed");
+  
+  // @ts-ignore
+  const provider = new Provider(
+    // connection, window.solana, opts.preflightCommitment,
+  );
+  return provider;
+}
 
 const MainPage = () => {
 
@@ -15,7 +45,9 @@ const MainPage = () => {
   const [walletAddress, setWalletAddress] = useState(null);
   const [message, setMessage] = useState<string>('');
   const [inputGreeting, setInputGreeting] = useState<string>('');
+  const [inputValue, setInputValue] = useState<string>('');
   const [showMsgBox, setShowMsgBox] = useState<boolean>(false);
+  const [gifList, setGifList] = useState<any[] | null>([]);
 
   const checkIfWalletIsConnected = async () => {
     try {
@@ -50,7 +82,10 @@ const MainPage = () => {
     }
   };
 
-
+  const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setInputValue(value);
+  };
 
   useEffect(() => {
     const onLoad = async () => {
@@ -60,7 +95,28 @@ const MainPage = () => {
     return () => window.removeEventListener('load', onLoad);
   }, []);
 
+  const getGifList = async () => {
+    try {
+      const provider = getProvider();
+      // @ts-ignore
+      const program = new Program(idl, programID, provider);
+      // const account = await program.account.baseAccount.fetch(baseAccount.publicKey);
 
+      // console.log("Got the account", account)
+      // setGifList(account.gifList)
+
+    } catch (error) {
+      console.log("Error in getGifList: ", error)
+      setGifList(null);
+    }
+  }
+
+  useEffect(() => {
+    if (walletAddress) {
+      console.log('Fetching GIF list...');
+      getGifList()
+    }
+  }, [walletAddress]);
 
   return (
     <section className="bg-gray-800">

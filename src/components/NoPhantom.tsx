@@ -1,5 +1,4 @@
 import React from 'react';
-import 'animate.css';
 import Solana from '../assets/Solana.svg'
 import Navbar from './Navbar'
 
