@@ -269,7 +269,7 @@ const NoPhantom = () => {
             Hi, thanks for visting!
 
             <span className="sm:block m-2">
-              This is my dApp on <img className="animate-pulse w-18 mx-auto m-8" src={Solana} alt="Solana Logo" /> blockchain.
+              This is my dApp on <img className="animate-pulse w-18 mx-auto m-8" src={Solana} alt="Solana Logo" /> devnet.
             </span>
 
           </h1>
