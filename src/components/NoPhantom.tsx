@@ -1,10 +1,12 @@
 import React from 'react';
 import 'animate.css';
 import Solana from '../assets/Solana.svg'
+import Navbar from './Navbar'
 
 const NoPhantom = () => {
   return (
     <section className="text-white bg-gray-900">
+      <Navbar />
       <div className="vortex">
         <div className="ball"></div>
         <div className="ball"></div>
@@ -290,7 +292,7 @@ const NoPhantom = () => {
           </div>
         </div>
       </div>
-    </section>
+    </section >
 
   )
 }
