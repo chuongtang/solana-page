@@ -280,12 +280,12 @@ const NoPhantom = () => {
             It requires  <img src="https://phantom.app/img/phantom-logo.svg" alt="Phantom" className="mx-2 w-24" />wallet to connect
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <a className="borderAnimation block w-full px-12 py-3 text-sm font-medium rounded sm:w-auto active:text-opacity-75 hover:bg-transparent hover:text-white focus:outline-none focus:ring " href="https://phantom.app/download"
+          <div className="flex flex-wrap justify-center gap-2 mt-8">
+            <a className="borderAnimation  block w-full px-12 py-3 text-sm font-medium rounded sm:w-auto active:text-opacity-75 hover:bg-transparent hover:text-white focus:outline-none focus:ring " href="https://phantom.app/download"
               target="_blank">
               Install Phantom
             </a>
-
+              <span className="text-xs text-transparent">_</span>
             <a className="block w-full px-12 py-3 text-sm font-medium text-white border-4 border-blue-600 rounded sm:w-auto hover:bg-blue-600 active:bg-blue-500 focus:outline-none focus:ring" href="/about">
               Learn More
             </a>

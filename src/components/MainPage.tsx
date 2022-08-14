@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import GridBody from './GridBody';
+import Navbar from './Navbar';
 import SolarSys from '../assets/Solarsys.svg'
 
 const MainPage = () => {
 
-  const TEST_GIFS = [
-    'https://i.giphy.com/media/eIG0HfouRQJQr1wBzz/giphy.webp',
-    'https://media3.giphy.com/media/L71a8LW2UrKwPaWNYM/giphy.gif?cid=ecf05e47rr9qizx2msjucl1xyvuu47d7kf25tqt2lvo024uo&rid=giphy.gif&ct=g',
-    'https://media4.giphy.com/media/AeFmQjHMtEySooOc8K/giphy.gif?cid=ecf05e47qdzhdma2y3ugn32lkgi972z9mpfzocjj6z1ro4ec&rid=giphy.gif&ct=g',
-    'https://i.giphy.com/media/PAqjdPkJLDsmBRSYUp/giphy.webp'
-  ]
+  // const TEST_GIFS = [
+  //   'https://i.giphy.com/media/eIG0HfouRQJQr1wBzz/giphy.webp',
+  //   'https://media3.giphy.com/media/L71a8LW2UrKwPaWNYM/giphy.gif?cid=ecf05e47rr9qizx2msjucl1xyvuu47d7kf25tqt2lvo024uo&rid=giphy.gif&ct=g',
+  //   'https://media4.giphy.com/media/AeFmQjHMtEySooOc8K/giphy.gif?cid=ecf05e47qdzhdma2y3ugn32lkgi972z9mpfzocjj6z1ro4ec&rid=giphy.gif&ct=g',
+  //   'https://i.giphy.com/media/PAqjdPkJLDsmBRSYUp/giphy.webp'
+  // ]
 
   const [walletAddress, setWalletAddress] = useState(null);
   const [message, setMessage] = useState<string>('');
@@ -63,7 +64,7 @@ const MainPage = () => {
 
   return (
     <section className="bg-gray-800">
-
+      <Navbar />
       {!walletAddress ?
         <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-8 lg:gap-16 lg:grid-cols-2">
@@ -357,7 +358,7 @@ const MainPage = () => {
           <p className="mt-4 text-gray-200 text-center">
             View my greeting message in the metaverse ✨.
           </p>
-          
+
           {!showMsgBox ?
             <button className="m-2 p-[2px] rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:text-white active:text-opacity-75 focus:outline-none focus:ring"
               onClick={() => setShowMsgBox(true)}>
@@ -396,7 +397,7 @@ const MainPage = () => {
               </div>
             </form>
           }
-          
+
           <p className="m-8 text-white">{message}</p>
           <GridBody />
 
