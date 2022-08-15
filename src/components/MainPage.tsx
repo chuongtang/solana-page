@@ -1,7 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import GridBody from './GridBody';
 import Navbar from './Navbar';
-import SolarSys from '../assets/Solarsys.svg'
+import SolarSys from '../assets/Solarsys.svg';
+import { Connection, PublicKey, clusterApiUrl } from '@solana/web3.js';
+import { Program, Provider, web3 } from '@project-serum/anchor';
+import idl from '../idl.json';
+
+// SystemProgram is a reference to the Solana runtime!
+const { SystemProgram, Keypair } = web3;
+
+// Create a keypair for the account that will hold the GIF data.
+let baseAccount = Keypair.generate();
+
+// Get our program's id from the IDL file.
+const programID = new PublicKey(idl.metadata.address);
+
+// Set our network to devnet.
+const network = clusterApiUrl('devnet');
+
+// Controls how we want to acknowledge when a transaction is "done".
+const opts = {
+  preflightCommitment: "processed"
+}
 
 const MainPage = () => {
 
@@ -16,6 +36,8 @@ const MainPage = () => {
   const [message, setMessage] = useState<string>('');
   const [inputGreeting, setInputGreeting] = useState<string>('');
   const [showMsgBox, setShowMsgBox] = useState<boolean>(false);
+  const [inputValue, setInputValue] = useState<string>('');
+  const [gifList, setGifList] = useState([]);
 
   const checkIfWalletIsConnected = async () => {
     try {
@@ -50,7 +72,20 @@ const MainPage = () => {
     }
   };
 
+  const sendGif = async () => {
+    if (inputValue.length > 0) {
+      console.log('Gif link:', inputValue);
+      setGifList([...gifList, inputValue]);
+      setInputValue('');
+    } else {
+      console.log('Empty input. Try again.');
+    }
+  };
 
+  const onInputChange = (event) => {
+    const { value } = event.target;
+    setInputValue(value);
+  };
 
   useEffect(() => {
     const onLoad = async () => {
@@ -60,7 +95,38 @@ const MainPage = () => {
     return () => window.removeEventListener('load', onLoad);
   }, []);
 
+  useEffect(() => {
+    if (walletAddress) {
+      console.log('Fetching GIF list...');
+      
+      // Call Solana program here.
+  
+      // Set state
+      setGifList(TEST_GIFS);
+    }
+  }, [walletAddress]);
 
+  const getGifList = async () => {
+    try {
+      const provider = getProvider();
+      const program = new Program(idl, programID, provider);
+      const account = await program.account.baseAccount.fetch(baseAccount.publicKey);
+
+      console.log("Got the account", account)
+      setGifList(account.gifList)
+
+    } catch (error) {
+      console.log("Error in getGifList: ", error)
+      setGifList(null);
+    }
+  }
+
+  useEffect(() => {
+    if (walletAddress) {
+      console.log('Fetching GIF list...');
+      getGifList()
+    }
+  }, [walletAddress]);
 
   return (
     <section className="bg-gray-800">
@@ -416,7 +482,7 @@ const MainPage = () => {
             <div className="w-max m-auto flex items-center justify-between space-x-4">
               <a href="tel:+243996660436" aria-label="call">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-5 m-auto" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"></path>
+                  <path fillRule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"></path>
                 </svg>
               </a>
               <a href="mailto:hello@mail.com" aria-label="send mail">
