@@ -5,5 +5,6 @@ declare global {
   interface Window {
     phantom: any
     solana: any
+    Buffer: any
   }
 }
