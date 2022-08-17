@@ -150,8 +150,6 @@ const MainPage = () => {
     }
   };
 
- 
-
 
   useEffect(() => {
     if (walletAddress) {
@@ -481,53 +479,56 @@ const MainPage = () => {
           <p className="mt-4 text-gray-200 text-center">
             View my greeting message in the metaverse ✨.
           </p>
-          {(gifList === null)?
-          <button className="animate-bounce m-2 p-4 rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:text-white active:text-opacity-75 focus:outline-none focus:ring" onClick={createGifAccount}>
-            Do One-Time Initialization For GIF Program Account
-          </button>
-          :!showMsgBox ?
-            <button className="m-2 p-[2px] rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:text-white active:text-opacity-75 focus:outline-none focus:ring"
-              onClick={() => setShowMsgBox(true)}>
-              <span className="block p-3 text-sm font-medium bg-white rounded-sm hover:bg-transparent">
-                Send a message
-              </span>
+          {(gifList === null) ?
+            <button className="animate-bounce m-2 p-4 rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:text-white active:text-opacity-75 focus:outline-none focus:ring" onClick={createGifAccount}>
+              Do One-Time Initialization For GIF Program Account
             </button>
-            :
-            <form className="space-y-4 m-2"
-              onSubmit={(event) => {
-                event.preventDefault();
-                sendGif();
-              }}>
-              <div>
-                <label className="sr-only" htmlFor="Email">Email</label>
-                <input className="w-full p-3 text-sm border-gray-200 rounded-lg" placeholder="Email (optional)" type="text" id="email" />
-              </div>
-              <div>
-                <label className="sr-only" htmlFor="message">Message</label>
-                <textarea
-                  className="w-full p-3 text-sm border-gray-200 rounded-lg"
-                  placeholder="Message"
-                  rows={8}
-                  id="message"
-                  required={true}
-                  value={inputValue}
-                  onChange={ onInputChange}
+            : !showMsgBox ?
+              <button className="m-2 p-[2px] rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:text-white active:text-opacity-75 focus:outline-none focus:ring"
+                onClick={() => setShowMsgBox(true)}>
+                <span className="block p-3 text-sm font-medium bg-white rounded-sm hover:bg-transparent">
+                  Send a message
+                </span>
+              </button>
+              :
+              <form className="space-y-4 m-2"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  sendGif();
+                }}>
+                <div>
+                  <label className="sr-only" htmlFor="Email">Email</label>
+                  <input className="w-full p-3 text-sm border-gray-200 rounded-lg" placeholder="Email (optional)" type="text" id="email" />
+                </div>
+                <div>
+                  <label className="sr-only" htmlFor="message">Message</label>
+                  <textarea
+                    className="w-full p-3 text-sm border-gray-200 rounded-lg"
+                    placeholder="Message"
+                    rows={8}
+                    id="message"
+                    required={true}
+                    value={inputValue}
+                    onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
+                    const {value} = event.target;
+                    setInputValue(value);
+                  }}
                 ></textarea>
-              </div>
+                </div>
 
-              <div className="mt-4">
-                <button
-                  type="submit"
-                  className="my-2 inline-flex items-center justify-center w-full border-2 border-yellow-600 rounded-lg px-3 py-2 text-yellow-400 cursor-pointer hover:bg-yellow-600 hover:text-yellow-200 sm:w-auto"
-                >Send 🚀
-                </button>
-                <button
-                  className="inline-flex float-right items-center justify-center border-2 border-red-600 rounded-lg px-3 py-2 text-red-400 cursor-pointer hover:bg-red-600 hover:text-red-200 sm:w-auto"
-                  onClick={() => setShowMsgBox(false)}
-                > Cancel ❌
-                </button>
-              </div>
-            </form>
+                <div className="mt-4">
+                  <button
+                    type="submit"
+                    className="my-2 inline-flex items-center justify-center w-full border-2 border-yellow-600 rounded-lg px-3 py-2 text-yellow-400 cursor-pointer hover:bg-yellow-600 hover:text-yellow-200 sm:w-auto"
+                  >Send 🚀
+                  </button>
+                  <button
+                    className="inline-flex float-right items-center justify-center border-2 border-red-600 rounded-lg px-3 py-2 text-red-400 cursor-pointer hover:bg-red-600 hover:text-red-200 sm:w-auto"
+                    onClick={() => setShowMsgBox(false)}
+                  > Cancel ❌
+                  </button>
+                </div>
+              </form>
           }
 
           <p className="m-8 text-white">{message}</p>
