@@ -3,7 +3,7 @@ import GridBody from './GridBody';
 import Navbar from './Navbar';
 import SolarSys from '../assets/Solarsys.svg';
 import { Connection, PublicKey, clusterApiUrl } from '@solana/web3.js';
-import { Program, Provider, web3 } from '@project-serum/anchor';
+import { Program, AnchorProvider, web3 } from '@project-serum/anchor';
 import idl from '../idl.json';
 
 // SystemProgram is a reference to the Solana runtime!
@@ -25,19 +25,19 @@ const opts = {
 
 const MainPage = () => {
 
-  // const TEST_GIFS = [
-  //   'https://i.giphy.com/media/eIG0HfouRQJQr1wBzz/giphy.webp',
-  //   'https://media3.giphy.com/media/L71a8LW2UrKwPaWNYM/giphy.gif?cid=ecf05e47rr9qizx2msjucl1xyvuu47d7kf25tqt2lvo024uo&rid=giphy.gif&ct=g',
-  //   'https://media4.giphy.com/media/AeFmQjHMtEySooOc8K/giphy.gif?cid=ecf05e47qdzhdma2y3ugn32lkgi972z9mpfzocjj6z1ro4ec&rid=giphy.gif&ct=g',
-  //   'https://i.giphy.com/media/PAqjdPkJLDsmBRSYUp/giphy.webp'
-  // ]
+  const TEST_GIFS = [
+    'https://i.giphy.com/media/eIG0HfouRQJQr1wBzz/giphy.webp',
+    'https://media3.giphy.com/media/L71a8LW2UrKwPaWNYM/giphy.gif?cid=ecf05e47rr9qizx2msjucl1xyvuu47d7kf25tqt2lvo024uo&rid=giphy.gif&ct=g',
+    'https://media4.giphy.com/media/AeFmQjHMtEySooOc8K/giphy.gif?cid=ecf05e47qdzhdma2y3ugn32lkgi972z9mpfzocjj6z1ro4ec&rid=giphy.gif&ct=g',
+    'https://i.giphy.com/media/PAqjdPkJLDsmBRSYUp/giphy.webp'
+  ]
 
   const [walletAddress, setWalletAddress] = useState(null);
   const [message, setMessage] = useState<string>('');
   const [inputGreeting, setInputGreeting] = useState<string>('');
   const [showMsgBox, setShowMsgBox] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>('');
-  const [gifList, setGifList] = useState([]);
+  const [gifList, setGifList] = useState<string[]>([]);
 
   const checkIfWalletIsConnected = async () => {
     try {
@@ -75,6 +75,7 @@ const MainPage = () => {
   const sendGif = async () => {
     if (inputValue.length > 0) {
       console.log('Gif link:', inputValue);
+      // @ts-ignore
       setGifList([...gifList, inputValue]);
       setInputValue('');
     } else {
@@ -82,10 +83,20 @@ const MainPage = () => {
     }
   };
 
-  const onInputChange = (event) => {
+  const onInputChange = (event:React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setInputValue(value);
   };
+
+  const getProvider = () => {
+    // @ts-ignore
+    const connection = new Connection(network, opts.preflightCommitment);
+    const provider = new AnchorProvider(
+      // @ts-ignore
+      connection, window.solana, opts.preflightCommitment,
+    );
+    return provider;
+  }
 
   useEffect(() => {
     const onLoad = async () => {
@@ -109,7 +120,7 @@ const MainPage = () => {
   const getGifList = async () => {
     try {
       const provider = getProvider();
-      const program = new Program(idl, programID, provider);
+      const program = new Program(idl as any, programID, provider);
       const account = await program.account.baseAccount.fetch(baseAccount.publicKey);
 
       console.log("Got the account", account)
@@ -117,7 +128,7 @@ const MainPage = () => {
 
     } catch (error) {
       console.log("Error in getGifList: ", error)
-      setGifList(null);
+      setGifList(null as any);
     }
   }
 

@@ -10,5 +10,10 @@ export default defineConfig({
       'env': {}
     } 
   },
-  plugins: [react(), WindiCSS()]
+  plugins: [react(), WindiCSS()],
+  optimizeDeps:{
+    esbuildOptions:{
+      target: 'es2020'
+    }
+  }
 })
