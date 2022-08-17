@@ -8,11 +8,15 @@ import idl from '../idl.json';
 import { Buffer } from 'buffer';
 window.Buffer = Buffer;
 
+import kp from '../keypair.json'
+
 // SystemProgram is a reference to the Solana runtime!
 const { SystemProgram, Keypair } = web3;
 
 // Create a keypair for the account that will hold the GIF data.
-let baseAccount = Keypair.generate();
+const arr = Object.values(kp._keypair.secretKey);
+const secret = new Uint8Array(arr);
+const baseAccount = web3.Keypair.fromSecretKey(secret);
 
 // Get our program's id from the IDL file.
 const programID = new PublicKey(idl.metadata.address);
@@ -146,50 +150,7 @@ const MainPage = () => {
     }
   };
 
-  const renderConnectedContainer = () => {
-    // If we hit this, it means the program account hasn't been initialized.
-    if (gifList === null) {
-      return (
-        <div className="connected-container">
-          <button className="cta-button submit-gif-button" onClick={createGifAccount}>
-            Do One-Time Initialization For GIF Program Account
-          </button>
-        </div>
-      )
-    }
-    // Otherwise, we're good! Account exists. User can submit GIFs.
-    else {
-      return (
-        <div className="connected-container">
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              sendGif();
-            }}
-          >
-            <input
-              type="text"
-              placeholder="Enter gif link!"
-              value={inputValue}
-              // onChange={onInputChange}
-            />
-            <button type="submit" className="cta-button submit-gif-button">
-              Submit
-            </button>
-          </form>
-          <div className="gif-grid">
-
-            {gifList.map((item, index) => (
-              <div className="gif-item" key={index}>
-                {/* @ts-ignore */}
-                <h3 className="text-red-500">{item.gifLink}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      )
-    }
-  }
+ 
 
 
   useEffect(() => {
@@ -520,8 +481,11 @@ const MainPage = () => {
           <p className="mt-4 text-gray-200 text-center">
             View my greeting message in the metaverse ✨.
           </p>
-
-          {!showMsgBox ?
+          {(gifList === null)?
+          <button className="animate-bounce m-2 p-4 rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:text-white active:text-opacity-75 focus:outline-none focus:ring" onClick={createGifAccount}>
+            Do One-Time Initialization For GIF Program Account
+          </button>
+          :!showMsgBox ?
             <button className="m-2 p-[2px] rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:text-white active:text-opacity-75 focus:outline-none focus:ring"
               onClick={() => setShowMsgBox(true)}>
               <span className="block p-3 text-sm font-medium bg-white rounded-sm hover:bg-transparent">
