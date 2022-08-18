@@ -268,7 +268,7 @@ const NoPhantom = () => {
       <div className="max-w-screen-xl px-4 py-32 mx-auto lg:h-screen lg:items-center lg:flex">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="mt-4 text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">
-            Hi, I'm Chuong, a blockchain follower.
+            Hello, <br/> I'm Chuong, a blockchain follower.
             <br/>
             <span className="sm:block m-2">
               This is my dApp on <img className="animate-pulse w-18 mx-auto m-8" src={Solana} alt="Solana Logo" /> devnet.
@@ -286,7 +286,7 @@ const NoPhantom = () => {
               Install Phantom
             </a>
               <span className="text-xs text-transparent">_</span>
-            <a className="block w-full px-12 py-3 text-sm font-medium text-white border-4 border-blue-600 rounded sm:w-auto hover:bg-blue-600 active:bg-blue-500 focus:outline-none focus:ring" href="/about">
+            <a className="block w-full px-12 py-3 text-sm font-medium text-white border-4 border-blue-600 rounded sm:w-auto hover:bg-blue-600 active:bg-blue-500 focus:outline-none focus:ring" href="https://docs.solana.com/clusters#devnet" target="_blank">
               Learn More
             </a>
           </div>
