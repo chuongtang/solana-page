@@ -29,9 +29,14 @@ const opts = {
   preflightCommitment: "processed"
 }
 
-interface GifItem {
+type GifItem = {
   gifLink: string;
-}
+  userAddress: number;
+};
+
+type GifListProps ={
+  gifListArray: GifItem[]
+};
 
 export interface IInputProps {
   className?: string;
@@ -41,19 +46,19 @@ export interface IInputProps {
 }
 const MainPage = () => {
 
-  const TEST_GIFS = [
-    'https://i.giphy.com/media/eIG0HfouRQJQr1wBzz/giphy.webp',
-    'https://media3.giphy.com/media/L71a8LW2UrKwPaWNYM/giphy.gif?cid=ecf05e47rr9qizx2msjucl1xyvuu47d7kf25tqt2lvo024uo&rid=giphy.gif&ct=g',
-    'https://media4.giphy.com/media/AeFmQjHMtEySooOc8K/giphy.gif?cid=ecf05e47qdzhdma2y3ugn32lkgi972z9mpfzocjj6z1ro4ec&rid=giphy.gif&ct=g',
-    'https://i.giphy.com/media/PAqjdPkJLDsmBRSYUp/giphy.webp'
-  ]
+  // const TEST_GIFS = [
+  //   'https://i.giphy.com/media/eIG0HfouRQJQr1wBzz/giphy.webp',
+  //   'https://media3.giphy.com/media/L71a8LW2UrKwPaWNYM/giphy.gif?cid=ecf05e47rr9qizx2msjucl1xyvuu47d7kf25tqt2lvo024uo&rid=giphy.gif&ct=g',
+  //   'https://media4.giphy.com/media/AeFmQjHMtEySooOc8K/giphy.gif?cid=ecf05e47qdzhdma2y3ugn32lkgi972z9mpfzocjj6z1ro4ec&rid=giphy.gif&ct=g',
+  //   'https://i.giphy.com/media/PAqjdPkJLDsmBRSYUp/giphy.webp'
+  // ]
 
   const [walletAddress, setWalletAddress] = useState(null);
   const [message, setMessage] = useState<string>('');
   const [inputGreeting, setInputGreeting] = useState<string>('');
   const [showMsgBox, setShowMsgBox] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>('');
-  const [gifList, setGifList] = useState<string[]>([]);
+  const [gifList, setGifList] = useState<{}[]>([]);
 
   const checkIfWalletIsConnected = async () => {
     try {
@@ -151,15 +156,15 @@ const MainPage = () => {
   };
 
 
-  useEffect(() => {
-    if (walletAddress) {
-      console.log('Fetching GIF list...');
+  // useEffect(() => {
+  //   if (walletAddress) {
+  //     console.log('Fetching GIF list...');
 
-      // createGifAccount();
-      // Set state
-      setGifList(TEST_GIFS);
-    }
-  }, [walletAddress]);
+  //     // createGifAccount();
+  //     // Set state
+  //     setGifList(TEST_GIFS);
+  //   }
+  // }, [walletAddress]);
 
   const getGifList = async () => {
     try {
@@ -167,7 +172,7 @@ const MainPage = () => {
       const program = new Program(idl as any, programID, provider);
       const account = await program.account.baseAccount.fetch(baseAccount.publicKey);
 
-      console.log("Got the account", account)
+      console.log('\x1b[33m%s\x1b[0m',"Got the account GIF LIST", account.gifList)
       setGifList(account.gifList)
 
     } catch (error) {
@@ -178,9 +183,10 @@ const MainPage = () => {
 
   useEffect(() => {
     if (walletAddress) {
-      console.log('Fetching GIF list...');
       getGifList()
+      console.log('Fetching GIF list...');
     }
+    console.log("*******", gifList);
   }, [walletAddress]);
 
   return (
@@ -532,7 +538,8 @@ const MainPage = () => {
           }
 
           <p className="m-8 text-white">{message}</p>
-          <GridBody />
+          {/* @ts-ignore */}
+          <GridBody gifListArray={gifList} />
 
         </>
 
