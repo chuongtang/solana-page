@@ -267,9 +267,9 @@ const NoPhantom = () => {
       </div>
       <div className="max-w-screen-xl px-4 py-32 mx-auto lg:h-screen lg:items-center lg:flex">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">
-            Hi, thanks for visting!
-
+          <h1 className="mt-4 text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">
+            Hi, I'm Chuong, a blockchain follower.
+            <br/>
             <span className="sm:block m-2">
               This is my dApp on <img className="animate-pulse w-18 mx-auto m-8" src={Solana} alt="Solana Logo" /> devnet.
             </span>

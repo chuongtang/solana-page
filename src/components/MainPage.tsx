@@ -223,7 +223,7 @@ const MainPage = () => {
           </div></div>
         :
         <>
-          <div className="vortex2">
+          <div className="vortex opacity-30">
             <div className="ball"></div>
             <div className="ball"></div>
             <div className="ball"></div>

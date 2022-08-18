@@ -34,7 +34,7 @@ const GridBody = (props: GifListProps ) => {
                 </p>
               </blockquote>
               {/* <div className="flex items-center gap-4 mt-4">
-                <p className="text-sm mt-1">{item.userAddress}</p>
+                <p className="text-sm mt-1">{item.userAddress._bn}</p>
               </div> */}
             </div>)
             )}
