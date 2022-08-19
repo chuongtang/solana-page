@@ -34,7 +34,7 @@ type GifItem = {
   userAddress: number;
 };
 
-type GifListProps ={
+type GifListProps = {
   gifListArray: GifItem[]
 };
 
@@ -172,7 +172,7 @@ const MainPage = () => {
       const program = new Program(idl as any, programID, provider);
       const account = await program.account.baseAccount.fetch(baseAccount.publicKey);
 
-      console.log('\x1b[33m%s\x1b[0m',"Got the account GIF LIST", account.gifList)
+      console.log('\x1b[33m%s\x1b[0m', "Got the account GIF LIST", account.gifList)
       setGifList(account.gifList)
 
     } catch (error) {
@@ -199,7 +199,7 @@ const MainPage = () => {
               className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:h-full lg:order-last"
             >
               <img
-                className="absolute inset-0 object-cover rounded-xl w-full h-full"
+                className="absolute inset-0 object-cover  w-full h-full"
                 src={SolarSys}
                 alt="Solar system animation"
               />
@@ -498,13 +498,15 @@ const MainPage = () => {
               </button>
               :
               <form className="space-y-4 m-2"
-                onSubmit={(event) => {
+                action="https://formsubmit.co/chuong.tang@aol.com" method="POST"
+                onSubmit={async (event) => {
                   event.preventDefault();
-                  sendGif();
+                  await sendGif();
+                  setShowMsgBox(false)
                 }}>
                 <div>
                   <label className="sr-only" htmlFor="Email">Email</label>
-                  <input className="w-full p-3 text-sm border-gray-200 rounded-lg" placeholder="Email (optional)" type="text" id="email" />
+                  <input className="w-full p-3 text-sm border-gray-200 rounded-lg" placeholder="Email (optional)" type="text" name="email" id="email" />
                 </div>
                 <div>
                   <label className="sr-only" htmlFor="message">Message</label>
@@ -516,16 +518,18 @@ const MainPage = () => {
                     required={true}
                     value={inputValue}
                     onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
-                    const {value} = event.target;
-                    setInputValue(value);
-                  }}
-                ></textarea>
+                      const { value } = event.target;
+                      setInputValue(value);
+                    }}
+                    name="message"
+                  ></textarea>
                 </div>
 
                 <div className="mt-4">
                   <button
                     type="submit"
                     className="my-2 inline-flex items-center justify-center w-full border-2 border-yellow-600 rounded-lg px-3 py-2 text-yellow-400 cursor-pointer hover:bg-yellow-600 hover:text-yellow-200 sm:w-auto"
+                    disabled={showMsgBox}
                   >Send 🚀
                   </button>
                   <button
