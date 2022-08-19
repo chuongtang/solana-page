@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-// import 'animate.css'
 import Solana from '../assets/Solana.svg'
 import Navbar from './Navbar'
 
 const NoPhantom = () => {
   const [showForm, SetShowForm] = useState<boolean>(false);
   return (
-    <section className="text-white bg-gray-900">
+    <section className="overflow-x-hidden text-white bg-gray-900">
       <Navbar />
       <div className="vortex">
         <div className="ball"></div>
@@ -266,7 +265,7 @@ const NoPhantom = () => {
         <div className="ball"></div>
         <div className="ball"></div>
       </div>
-      <div className="max-w-screen-xl px-4 py-32 mx-auto lg:h-screen lg:items-center lg:flex">
+      <div className="max-w-screen-xl px-4 py-32 mx-auto h-screen lg:items-center lg:flex">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="mt-4 text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">
             Hello, <br /> I'm Chuong, a blockchain follower.
@@ -299,7 +298,7 @@ const NoPhantom = () => {
 
             <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
 
-              <form action="" className="space-y-4 relative max-w-xl p-6 bg-gray-100 rounded-lg shadow-sm">
+              <form action="https://formsubmit.co/email@chuongtang.com" method="POST" className="space-y-4 relative max-w-xl p-6 bg-gray-100 rounded-lg shadow-sm">
                 <button
                   type="button"
                   className="absolute p-1 text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 rounded-full -top-1 -right-1"
@@ -322,19 +321,20 @@ const NoPhantom = () => {
                 <div>
                   <label className="sr-only" htmlFor="email">Email</label>
                   <input
-                    className="w-full p-3 text-sm border-gray-200 rounded-lg"
+                    className="w-full p-3 text-gray-500 text-sm border-gray-200 rounded-lg"
                     placeholder="Email address"
                     type="email"
+                    name="email"
                     id="email"
                   />
                 </div>
 
-
                 <div>
                   <label className="sr-only" htmlFor="message">Message</label>
                   <textarea
-                    className="w-full p-3 text-sm border-gray-200 rounded-lg"
+                    className="w-full p-3 text-gray-500  text-sm border-gray-200 rounded-lg"
                     placeholder="Message"
+                    name="message"
                     rows={8}
                     id="message"
                   ></textarea>
@@ -343,7 +343,7 @@ const NoPhantom = () => {
                 <div className="mt-4">
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center w-full p-3 text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 rounded-lg sm:w-auto"
+                    className="inline-flex items-center justify-center w-full p-3 text-gray-500 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 rounded-lg sm:w-auto"
                   >
                     <span className="font-medium"> Send</span>
 
