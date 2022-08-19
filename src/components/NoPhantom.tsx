@@ -7,34 +7,53 @@ const NoPhantom = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
   const [comment, setComment] = useState<string>('');
+  const [alert, setAlert] = useState<string>('');
 
   const sendComment = async () => {
     setLoading(true);
-
-    try {
-      const dataRes = await fetch("https://formsubmit.co/ajax/chuongtang@icloud.com", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: "FSolanaDapp",
-          email: { email },
-          message: { comment }
-        })
+    await fetch("https://formsubmit.co/ajax/chuongtang@icloud.com", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: "FSolanaDapp",
+        email: { email },
+        message: { comment }
       })
-      console.log("Sent Successfully", '\x1b[35m%s\x1b[0m', dataRes)
-      setLoading(false)
+    })
+    return false;
 
-    } catch (error) {
-      console.log('\x1b[31m%s\x1b[0m', error)
-    }
+    // try {
+    //   const dataRes = await fetch("https://formsubmit.co/ajax/chuongtang@icloud.com", {
+    //     method: "POST",
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       'Accept': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //       name: "FSolanaDapp",
+    //       email: { email },
+    //       message: { comment }
+    //     })
+    //   })
+    //   console.log("Sent Successfully", '\x1b[35m%s\x1b[0m', dataRes)
+    //   setLoading(false)
+    //   document.location.href="/";
+    //   setAlert('Successfully sent. Thank-you!')
+    // } catch (error) {
+    //   console.log('\x1b[31m%s\x1b[0m', error)
+    // }
   }
 
   return (
     <section className="overflow-x-hidden text-white bg-gray-900">
       <Navbar />
+      {alert !== '' && <div className="p-2 font-medium m-4 text-sm text-center text-yellow-100 border border-green-300 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+        {alert}
+      </div>}
+
       <div className="vortex">
         <div className="ball"></div>
         <div className="ball"></div>
@@ -326,7 +345,10 @@ const NoPhantom = () => {
 
             <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
               <form className="space-y-4 relative max-w-xl p-6 bg-gray-100 rounded-lg shadow-sm"
-                onSubmit={sendComment}>
+                // onSubmit={sendComment}
+                action="https://formspree.io/f/maykygal"
+                method="POST"
+                >
                 <button
                   type="button"
                   className="absolute p-1 text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 rounded-full -top-1 -right-1"
