@@ -4,6 +4,34 @@ import Navbar from './Navbar'
 
 const NoPhantom = () => {
   const [showForm, SetShowForm] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>('');
+  const [comment, setComment] = useState<string>('');
+
+  const sendComment = async () => {
+    setLoading(true);
+
+    try {
+      const dataRes = await fetch("https://formsubmit.co/ajax/chuongtang@icloud.com", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: "FSolanaDapp",
+          email: { email },
+          message: { comment }
+        })
+      })
+      console.log("Sent Successfully", '\x1b[35m%s\x1b[0m', dataRes)
+      setLoading(false)
+
+    } catch (error) {
+      console.log('\x1b[31m%s\x1b[0m', error)
+    }
+  }
+
   return (
     <section className="overflow-x-hidden text-white bg-gray-900">
       <Navbar />
@@ -297,8 +325,8 @@ const NoPhantom = () => {
           <div className="fixed inset-x-0 bottom-0 p-4">
 
             <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
-
-              <form action="https://formsubmit.co/email@chuongtang.com" method="POST" className="space-y-4 relative max-w-xl p-6 bg-gray-100 rounded-lg shadow-sm">
+              <form className="space-y-4 relative max-w-xl p-6 bg-gray-100 rounded-lg shadow-sm"
+                onSubmit={sendComment}>
                 <button
                   type="button"
                   className="absolute p-1 text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 rounded-full -top-1 -right-1"
@@ -311,9 +339,9 @@ const NoPhantom = () => {
                     fill="currentColor"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                      clip-rule="evenodd"
+                      clipRule="evenodd"
                     />
                   </svg>
                 </button>
@@ -326,6 +354,8 @@ const NoPhantom = () => {
                     type="email"
                     name="email"
                     id="email"
+                    onChange={e => setEmail(e.target.value)}
+                    required={true}
                   />
                 </div>
 
@@ -337,17 +367,22 @@ const NoPhantom = () => {
                     name="message"
                     rows={8}
                     id="message"
-                  ></textarea>
+                    onChange={e => setComment(e.target.value)}
+                    required={true}>
+
+                  </textarea>
                 </div>
 
                 <div className="mt-4">
                   <button
                     type="submit"
                     className="inline-flex items-center justify-center w-full p-3 text-gray-500 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 rounded-lg sm:w-auto"
+                    disabled={loading}
                   >
-                    <span className="font-medium"> Send</span>
-
-                    <svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M20.33 3.67a1.45 1.45 0 0 0-1.47-.35L4.23 8.2A1.44 1.44 0 0 0 4 10.85l6.07 3l3 6.09a1.44 1.44 0 0 0 1.29.79h.1a1.43 1.43 0 0 0 1.26-1l4.95-14.59a1.41 1.41 0 0 0-.34-1.47ZM4.85 9.58l12.77-4.26l-7.09 7.09Zm9.58 9.57l-2.84-5.68l7.09-7.09Z" /></svg>
+                    {loading ? <span className="animate-ping">Submitting...</span> : <span className="font-medium"> Send</span>}
+                    {loading ? <svg width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H6c-1.103 0-2 .897-2 2v5h2V8l6.4 4.8a1.001 1.001 0 0 0 1.2 0L20 8v9h-8v2h8c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm-7 6.75L6.666 6h12.668L13 10.75z" /><path fill="currentColor" d="M2 12h7v2H2zm2 3h6v2H4zm3 3h4v2H7z" /></svg>
+                      :
+                      <svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M20.33 3.67a1.45 1.45 0 0 0-1.47-.35L4.23 8.2A1.44 1.44 0 0 0 4 10.85l6.07 3l3 6.09a1.44 1.44 0 0 0 1.29.79h.1a1.43 1.43 0 0 0 1.26-1l4.95-14.59a1.41 1.41 0 0 0-.34-1.47ZM4.85 9.58l12.77-4.26l-7.09 7.09Zm9.58 9.57l-2.84-5.68l7.09-7.09Z" /></svg>}
                   </button>
                 </div>
               </form>
