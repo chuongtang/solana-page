@@ -46,16 +46,8 @@ export interface IInputProps {
 }
 const MainPage = () => {
 
-  // const TEST_GIFS = [
-  //   'https://i.giphy.com/media/eIG0HfouRQJQr1wBzz/giphy.webp',
-  //   'https://media3.giphy.com/media/L71a8LW2UrKwPaWNYM/giphy.gif?cid=ecf05e47rr9qizx2msjucl1xyvuu47d7kf25tqt2lvo024uo&rid=giphy.gif&ct=g',
-  //   'https://media4.giphy.com/media/AeFmQjHMtEySooOc8K/giphy.gif?cid=ecf05e47qdzhdma2y3ugn32lkgi972z9mpfzocjj6z1ro4ec&rid=giphy.gif&ct=g',
-  //   'https://i.giphy.com/media/PAqjdPkJLDsmBRSYUp/giphy.webp'
-  // ]
-
   const [walletAddress, setWalletAddress] = useState(null);
   const [message, setMessage] = useState<string>('');
-  const [inputGreeting, setInputGreeting] = useState<string>('');
   const [showMsgBox, setShowMsgBox] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>('');
   const [gifList, setGifList] = useState<{}[]>([]);
@@ -155,17 +147,6 @@ const MainPage = () => {
     }
   };
 
-
-  // useEffect(() => {
-  //   if (walletAddress) {
-  //     console.log('Fetching GIF list...');
-
-  //     // createGifAccount();
-  //     // Set state
-  //     setGifList(TEST_GIFS);
-  //   }
-  // }, [walletAddress]);
-
   const getGifList = async () => {
     try {
       const provider = getProvider();
@@ -207,7 +188,7 @@ const MainPage = () => {
 
             <div className="lg:py-24">
 
-              <h1 className="text-3xl py-4 font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-red-600">My GIF Portal</h1>
+              <h1 className="text-3xl py-4 font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-red-600">My Quotes Portal</h1>
 
               <p className="mt-8 text-gray-200">
                 View your GIF collecion in the metaverse ✨.
@@ -481,7 +462,7 @@ const MainPage = () => {
             <div className="ball"></div>
             <div className="ball"></div>
           </div>
-          <h1 className="text-3xl py-8 text-center font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-red-700">My GIF Portal</h1>
+          <h1 className="text-3xl py-8 text-center font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-red-700">My Quotes Portal</h1>
           <p className="mt-4 text-gray-200 text-center">
             View my greeting message in the metaverse ✨.
           </p>

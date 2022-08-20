@@ -1,10 +1,5 @@
 import React from 'react'
 
-type GifItemProps = {
-  gifLink: string
-  userAddress: number
-};
-
 type GifItem = {
   gifLink: string;
   userAddress: number;
@@ -16,8 +11,6 @@ type GifListProps ={
 
 const GridBody = (props: GifListProps ) => {
  
-// const GridBody: React.FC<GifItemProps[]>= (gifArray ) => {
-// const GridBody = (gifArray : GifItemProps[] ) => {
   return (
 
     <section>

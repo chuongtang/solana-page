@@ -316,16 +316,7 @@ const NoPhantom = () => {
 
             <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
               <form className="space-y-4 relative max-w-xl p-6 bg-gray-100 rounded-lg shadow-sm"
-                // onSubmit={sendComment}
-                // action="https://formspree.io/f/maykygal"
-                // method="POST"
                 onSubmit={handleSubmit}
-                // onSubmit={ ()=>{
-                //   setAlert("Sending form....")
-                //   console.log("submit cliecked")
-                //   handleSubmit;
-                // }
-                //   }
               >
                 <button
                   type="button"
@@ -387,7 +378,7 @@ const NoPhantom = () => {
                   <button
                     type="submit"
                     className="inline-flex items-center justify-center w-full p-3 text-gray-500 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 rounded-lg sm:w-auto"
-                    // disabled={loading}
+                  
                     disabled={state.submitting}
                     onClick={() => setLoading(true)}
                   >
@@ -402,10 +393,6 @@ const NoPhantom = () => {
             </div>
           </div>
         }
-
-        {/* </div>
-          </div>
-        </footer> */}
       </div>
     </section >
 
