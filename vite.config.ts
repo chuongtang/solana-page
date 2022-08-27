@@ -11,9 +11,9 @@ export default defineConfig({
     } 
   },
   plugins: [react(), WindiCSS()],
-  optimizeDeps:{
-    esbuildOptions:{
-      target: 'es2020'
-    }
-  }
+  // optimizeDeps:{
+  //   esbuildOptions:{
+  //     target: 'es2020'
+  //   }
+  // }
 })
