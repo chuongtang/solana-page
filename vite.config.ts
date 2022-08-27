@@ -3,18 +3,15 @@ import react from '@vitejs/plugin-react'
 import WindiCSS from 'vite-plugin-windicss'
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  esbuild: {},
-  define: {
-    global: {},
-    process: {
-      'env': {}
-    } 
-  },
+export default defineConfig(async ({ command, mode }) => {
+  // const data = await asyncFunction()
+  return {
+    // vite config
+    esbuild: {},
   plugins: [react(), WindiCSS()],
-  optimizeDeps:{
-    esbuildOptions:{
+  optimizeDeps: {
+    esbuildOptions: {
       target: 'es2020'
     }
   }
-})
+}})
