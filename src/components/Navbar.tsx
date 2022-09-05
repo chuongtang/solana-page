@@ -8,7 +8,7 @@ const toggleNavbar = (collapseID: string) => {
 
 const Navbar = () => {
   return (
-    <nav className="top-0  z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
+    <nav className="sticky top-0  z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
       <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
         {/* <!-- Nav Left Side --> */}
         <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
@@ -59,6 +59,25 @@ const Navbar = () => {
                   <path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
                 </svg>
                 <span className="lg:hidden inline-block ml-2">LinkedIn</span>
+              </a>
+            </li>
+            {/* <!-- MyPage Button --> */}
+            <li className="flex items-center">
+              <a className="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs font-bold"
+                href="https://chuongtang.pages.dev" target="_blank">
+                {/* <!-- Icon --> */}
+                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-network" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <circle cx="12" cy="9" r="6"></circle>
+                  <path d="M12 3c1.333 .333 2 2.333 2 6s-.667 5.667 -2 6"></path>
+                  <path d="M12 3c-1.333 .333 -2 2.333 -2 6s.667 5.667 2 6"></path>
+                  <path d="M6 9h12"></path>
+                  <path d="M3 19h7"></path>
+                  <path d="M14 19h7"></path>
+                  <circle cx="12" cy="19" r="2"></circle>
+                  <path d="M12 15v2"></path>
+                </svg>
+                <span className="lg:hidden inline-block ml-2">MyWeb2.0</span>
               </a>
             </li>
             {/* <!-- Twitter Button --> */}

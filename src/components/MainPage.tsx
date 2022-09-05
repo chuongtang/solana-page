@@ -523,7 +523,7 @@ const MainPage = () => {
               </form>
           }
 
-          <p className="m-8 text-white">{message}</p>
+          <p className="m-2 italic text-xs text-white">{message}</p>
           {/* @ts-ignore */}
           <GridBody gifListArray={gifList} />
 
