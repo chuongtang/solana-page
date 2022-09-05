@@ -13,13 +13,13 @@ const GridBody = (props: GifListProps ) => {
  
   return (
 
-    <section>
+    <section className="bg-gray-500">
       <div className="max-w-screen-xl text-white p-4 mx-auto sm:px-6 lg:px-8">
-        {/* <p className="text-red-500 text-shadow-lg text-center m-4">Wall of Greetings</p> */}
+        
         <div
           className="sm:gap-6 lg:gap-8 sm:columns-2 lg:columns-3 [column-fill:_balance]"
         >
-          {props.gifListArray.map((item, index) => (
+          {props.gifListArray?.map((item, index) => (
           <div className="mb-8 sm:break-inside-avoid" key={index}>
               <blockquote className="p-6 shadow bg-gray-50 rounded-xl overflow-clip">
                 <p className="leading-relaxed text-gray-700">

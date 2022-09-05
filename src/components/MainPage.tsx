@@ -463,8 +463,8 @@ const MainPage = () => {
             <div className="ball"></div>
           </div>
           <h1 className="text-3xl py-8 text-center font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-red-700">My Quotes Portal</h1>
-          <p className="mt-4 text-gray-200 text-center">
-            View my greeting message in the metaverse ✨.
+          <p className="mt-4 text-gray-200 text-2xl text-center">
+             My wall of greetings in the metaverse ✨.
           </p>
           {(gifList === null) ?
             <button className="animate-bounce m-2 p-4 rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:text-white active:text-opacity-75 focus:outline-none focus:ring" onClick={createGifAccount}>
@@ -479,7 +479,6 @@ const MainPage = () => {
               </button>
               :
               <form className="space-y-4 m-2"
-                // action="https://formsubmit.co/chuong.tang@aol.com" method="POST"
                 onSubmit={async (event) => {
                   event.preventDefault();
                   console.log("click on send button")
@@ -512,7 +511,7 @@ const MainPage = () => {
                     type="submit"
                     className="my-2 inline-flex items-center justify-center w-full border-2 border-yellow-600 rounded-lg px-3 py-2 text-yellow-400 cursor-pointer hover:bg-yellow-600 hover:text-yellow-200 sm:w-auto"
                     // disabled={showMsgBox}
-                    onClick={()=>console.log("clickkkkk")}
+                    // onClick={()=>console.log("clickkkkk")}
                   >Send it 🚀
                   </button>
                   <button
