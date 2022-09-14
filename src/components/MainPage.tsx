@@ -188,6 +188,7 @@ const MainPage = () => {
 
             <div className="lg:py-24">
 
+              <h1 className="text-2xl py-4 font-extrabold text-transparent sm:text-4xl bg-clip-text bg-gradient-to-r from-yellow-300 via-teal-500 to-pink-200">Hi, thanks for visiting</h1>
               <h1 className="text-3xl py-4 font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-pink-200">My Quotes Portal</h1>
 
               <p className="mt-8 text-gray-200">
