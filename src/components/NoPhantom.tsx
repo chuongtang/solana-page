@@ -295,7 +295,7 @@ const NoPhantom = () => {
           </h1>
 
           <p className="flex max-w-xl mx-auto justify-center mt-4 sm:leading-relaxed sm:text-xl">
-            It requires  <img src="https://phantom.app/img/phantom-logo.svg" alt="Phantom" className="mx-2 w-24" />wallet to connect
+            It requires  <img src="https://chuongtang.github.io/sourceStore/logos/Phantom.png" alt="Phantom" className="mx-2 w-12" />wallet to connect
           </p>
 
           <div className="flex flex-wrap justify-center gap-2 mt-8">
